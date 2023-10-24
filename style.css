@@ -1,17 +1,106 @@
-header {
+/* Стили для главного заголовка */
+.main-header {
+    background-color: #7c3c87; /* Фиолетовый цвет фона */
+    color: #fff; /* Белый цвет текста */
+    font-family: 'CircularStd', sans-serif; /* Шрифт с круглыми краями */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+/* Стили для текста в шапке */
+.student {
+    text-align: center; /* Выравниваем текст по центру */
+    flex-grow: 1; /* Занимаем доступное пространство по горизонтали */
 }
-body{
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    background-color: #6f42c1;
-    background-image: url("sources/pattern.png");
-    background-repeat: repeat;
-}
-.student  {
-    font-size: 24px;
-    color: white;
-}
+
+/* Стили для ссылки на GitHub */
 .git-logo-link {
-    margin-right: auto;
+    margin-left: 10px; /* Перемещаем элемент влево для разделения от текста */
+    min-width: 50px; /* Минимальная ширина для логотипа GitHub */
+}
+
+.git-logo-link a img {
+    width: 5%;
+}
+
+/* Стили для главного контейнера */
+.main {
+    text-align: center;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Стили для контейнера с графиком */
+.graph-container {
+    flex: 1;
+    text-align: center;
+}
+
+/* Стили для изображения с графиком */
+.graph-container img {
+    width: 100%;
+    max-width: none;
+    display: block;
+}
+
+/* Стили для формы параметров */
+.parameters {
+    margin: 0 auto;
+    width: 300px;
+    text-align: center; /* Центрируем содержимое формы по центру */
+}
+
+/* Стили для кнопок выбора X */
+.buttonX {
+    width: 60px;
+    height: 30px;
+    margin: 5px;
+    background-color: #ffcc00; /* Желтый цвет фона */
+    color: #fff; /* Белый цвет текста */
+}
+
+/* Стили для поля ввода Y */
+.text-input {
+    width: 100px;
+    height: 30px;
+    margin: 5px;
+}
+
+/* Стили для радиокнопок выбора R */
+.radioR {
+    margin: 5px auto; /* Убираем левый и правый отступ, центрируем по горизонтали */
+    text-align: center; /* Центрируем текст радиокнопок */
+}
+
+/* Стили для кнопок "Check" и "Clear" */
+.action-button {
+    background-color: #7c3c87; /* Фиолетовый цвет фона */
+    color: #fff; /* Белый цвет текста */
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* Стили для футера */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #7c3c87; /* Фиолетовый цвет фона */
+    color: #fff; /* Белый цвет текста */
+}
+
+/* Добавляем круглые края для всех элементов */
+* {
+    border-radius: 10px;
+}
+
+/* Добавляем шрифт CircularStd */
+@font-face {
+    font-family: 'CircularStd';
+    src: url('sources/CircularStd-Black.ttf') format('truetype');
 }
