@@ -16,6 +16,10 @@ body {
     align-items: center;
 }
 
+div {
+    display: block;
+}
+
 .student {
     font-size: 16px;
 }
@@ -28,37 +32,27 @@ body {
     border: 0;
 }
 
-.container {
-    width: 980px;
-    margin: 0 auto;
-    padding: 0 10px;
+div.wrapper {
+    margin: 0.5% 1% 2% 1%;
+    width: 98%;
 }
-
-.main-left {
-    float: left;
-    width: 600px;
-    min-height: 400px;
-    border-radius: 20px;
-    margin: 20px auto;
-    text-align: center;
-}
-
-.main-right {
-    float: right;
-    width: 320px;
-    min-height: 400px;
-
-    border-radius: 20px;
-    margin: 20px auto;
-    text-align: center;
+.grid {
+    border: 1px solid #2f2f2f;
+    display: grid;
+    /* grid-template-columns: repeat(3, 606px); */
+    grid-template-columns: 606px 1.3fr 3fr;
 }
 
 .graph-container img {
-    max-width: 100%; /* Уменьшаем картинку с графиком */
+    max-width: 120%; /* Уменьшаем картинку с графиком */
     display: block;
     margin: 0 auto;
+    margin-top: 10%;
 }
-
+div.container {
+    padding: 3px 6px 3px 6px;
+    font-size: 18px;
+}
 h3 {
     color: #7c3c87;
     margin-top: 20px;
@@ -72,7 +66,7 @@ h3 {
 
 .buttonX {
     background-color: #7c3c87;
-    color: #ffcc00;
+    color: #ffffff;
     border: none;
     padding: 10px 15px;
     font-size: 16px;
@@ -100,7 +94,7 @@ h3 {
 
 .action-button {
     background-color: #7c3c87;
-    color: #ffcc00;
+    color: #ffffff;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -115,8 +109,7 @@ h3 {
 }
 
 .result-table {
-    border: rgba(192, 122, 255, 0.7) solid 2px;
-    border-radius: 2em;
+    border: #7c3c87 solid 2px;
     border-spacing: 0.5em;
     color: #333333;
     margin-top: 2em;

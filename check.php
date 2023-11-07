@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_POST['check'])) {
     function validate($x, $y, $r) {
-        return is_numeric($x) && is_numeric($y) && is_numeric($r) && in_array($x, array(-4, -3, -2, -1, 0.0, 1, 2, 3, 4)) && $y > -3 && $y < 5 && $r > 2 && $r < 5;
+        return is_numeric($x) && is_numeric($y) && is_numeric($r) && in_array($x, array(-4, -3, -2, -1, 0.0, 1, 2, 3, 4)) && $y > -3 && $y < 5 && in_array($r, array(-5, -4, -3, -2, -1, 0.0, 1, 2, 3));
     }
 
     function is_hit($x, $y, $r) {

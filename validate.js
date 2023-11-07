@@ -1,55 +1,73 @@
-const sendButton = document.getElementById("submit_request")
-sendButton.onclick = validateForm;
-function validateForm() {
-    var x = document.getElementById("x").value;
-    var y = document.getElementById("y").value;
-    var r = document.getElementById("r").value;
-    var xValid = parseFloat(x) >= -4 && parseFloat(x) <= 4;
-    var yValid = parseFloat(y) >= -3 && parseFloat(y) <= 5;
-    var rValid = parseFloat(r) >= 2 && parseFloat(r) <= 5;
+const sendButton = document.getElementById("submit_request");
+sendButton.onclick = validate;
 
-    if (!xValid) {
-        document.getElementById("xError").classList.add("error");
-    } else {
-        document.getElementById("xError").classList.remove("error");
+function validate() {
+    function setOnClick(element) {
+        element.onclick = function () {
+            const xVal = this.value;
+        }
     }
 
-    if (!yValid) {
-        document.getElementById("yError").classList.add("error");
-    } else {
-        document.getElementById("yError").classList.remove("error");
+    let buttons = document.querySelectorAll("input[name=R-button]");
+    buttons.forEach(setOnClick);
+
+    const yVal = document.forms['form']['y'].value.replace(/,/, '.');
+    const rVal = document.querySelector('input[name="r"]:checked').value;
+
+    console.log("Выбранное значение X:", xVal);
+    console.log("Введенное значение Y:", yVal);
+    console.log("Выбранное значение R:", rVal);
+
+    if (isEmpty(xVal)) {
+        alert('Select X');
+        return;
     }
 
-    if (!rValid) {
-        document.getElementById("rError").classList.add("error");
-    } else {
-        document.getElementById("rError").classList.remove("error");
+    if (isEmpty(yVal) || isEmpty(rVal)) {
+        alert('Enter a number in Y and R fields');
+        return;
     }
 
-    if (xValid && yValid && rValid) {
-        sendRequest(x, y, r);
+    if (isNaN(xVal) || Math.abs(xVal) > 4) {
+        alert('X должен быть в диапазоне [-4; 4]');
+        return;
     }
-    return false; // Отменяет отправку формы
+
+    if (isNaN(yVal) || yVal <= -3 || yVal >= 5) {
+        alert('Y должен быть в диапазоне (-3; 5)');
+        return;
+    }
+
+    if (isNaN(rVal) || rVal <= -5 || rVal >= 3) {
+        alert('R должен быть в диапазоне (-5; 3)');
+        return;
+    }
+
+    send(xVal, yVal, rVal);
 }
 
-function sendRequest(x, y, r) {
-    var xhr = new XMLHttpRequest();
+function send(x, y, r) {
+    const xhr = new XMLHttpRequest();
     xhr.open("POST", "check.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
+
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            var response = xhr.responseText;
-            document.getElementById("results").innerHTML = response;
+            const tbody = document.getElementById("table");
+            const newRow = tbody.insertRow();
+            newRow.innerHTML = xhr.responseText;
         }
     };
+    xhr.send(`x=${x}&y=${y}&r=${r}`);
+}
+const clearButton = document.getElementById("clear_table");
+clearButton.onclick = clearTable;
 
-    var params = "x=" + x + "&y=" + y + "&r=" + r;
-    xhr.send(params);
+function clearTable() {
+    const tbody = document.getElementById("table");
+    tbody.innerHTML = "";
 }
 
 function isEmpty(obj) {
-    for (let key in obj) {
-        return false;
-    }
-    return true;
+    return obj === null || obj === '';
 }
