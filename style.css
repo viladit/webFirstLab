@@ -67,11 +67,9 @@ h3 {
 .buttonX {
     background-color: #7c3c87;
     color: #ffffff;
-    border: none;
     padding: 10px 15px;
     font-size: 16px;
     border-radius: 10px;
-    cursor: pointer;
     margin: 5px;
     width: 50px;
 }

@@ -1,20 +1,24 @@
 const sendButton = document.getElementById("submit_request");
 sendButton.onclick = validate;
 
+var xVal;
+document.addEventListener('DOMContentLoaded', function() {
+    var buttons = document.querySelectorAll('.buttonX');
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const x = this.value;
+            console.log('Нажата кнопка со значением: ' + x);
+            // здесь можно выполнять нужные вам действия с полученным значением
+        });
+    });
+});
 function validate() {
-    function setOnClick(element) {
-        element.onclick = function () {
-            const xVal = this.value;
-        }
-    }
-
-    let buttons = document.querySelectorAll("input[name=R-button]");
-    buttons.forEach(setOnClick);
-
+    const xVal = x;
     const yVal = document.forms['form']['y'].value.replace(/,/, '.');
     const rVal = document.querySelector('input[name="r"]:checked').value;
 
-    console.log("Выбранное значение X:", xVal);
+    let x;
+    console.log("Выбранное значение X:", x);
     console.log("Введенное значение Y:", yVal);
     console.log("Выбранное значение R:", rVal);
 
@@ -24,7 +28,7 @@ function validate() {
     }
 
     if (isEmpty(yVal) || isEmpty(rVal)) {
-        alert('Enter a number in Y and R fields');
+        alert('Введите значения для Y и R!');
         return;
     }
 
