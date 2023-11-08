@@ -57,7 +57,7 @@
                     </table>
                     <h3>Введите значение Y:</h3>
                     <label>
-                        <input id="textY" class="text-input" maxlength="2" type="text" name="y" placeholder="(-3; 5)" size="13">
+                        <input id="textY" class="text-input" maxlength="20" type="text" oninput="change_input_field(this, -2.9999, 4.9999, 0)" name="y" placeholder="(-3; 5)" size="15">
                     </label>
                     <h3>Выберите значение R:</h3>
                     <table>
@@ -96,9 +96,9 @@
                             <th colspan="1" style="width: 10%">X</th>
                             <th colspan="1" style="width: 10%">Y</th>
                             <th colspan="1" style="width: 5%">R</th>
-                            <th colspan="1" style="width: 15%">Результат</th>
-                            <th colspan="1" style="width: 35%">Выполнен в</th>
+                            <th colspan="1" style="width: 15%">Выполнен в</th>
                             <th colspan="1" style="width: 35%">Время выполнения</th>
+                            <th colspan="1" style="width: 35%">Результат</th>
                         </tr>
                         </thead>
                         <tbody id="insertHere">

@@ -31,18 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        if (isNaN(xVal) || Math.abs(xVal) > 4) {
-            alert('X должен быть в диапазоне [-4; 4]');
-            return;
-        }
 
         if (isNaN(yVal) || yVal < -3 || yVal > 5) {
             alert('Y должен быть в диапазоне (-3; 5)');
             return;
         }
-
-        if (isNaN(rVal) || rVal < 1 || rVal > 5) {
-            alert('R должен быть в диапазоне (1; 5)');
+        if (!/^-?\d+(\.\d+)?$/.test(yVal)) {
+            alert('Некорректное значение Y!');
             return;
         }
 
@@ -62,7 +57,12 @@ function send(x, y, r) {
             const newRow = tbody.insertRow();
             console.log(xhr.responseText);
             newRow.innerHTML = xhr.responseText;
-            localStorage.setItem("data", localStorage.getItem("data")+xhr.responseText);
+            if (localStorage.getItem("data") == null) {
+                localStorage.setItem("data", xhr.responseText);
+            } else {
+                localStorage.setItem("data", localStorage.getItem("data")+xhr.responseText);
+            }
+
         }
     };
     xhr.send(`x=${x}&y=${y}&r=${r}`);

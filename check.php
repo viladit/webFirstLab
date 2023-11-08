@@ -11,7 +11,7 @@ function validate($x, $y, $r): bool {
 function is_hit($x, $y, $r): bool {
     return ($x <= 0 && $y <= 0 && ($x * $x + $y * $y) <= ($r / 2 * $r / 2)) || //left bot
         ($x >= 0 && $y >= 0 && $y <= $r && $x <= $r) || //right top
-        ($x >= 0 && $x <= ($r/2) && $y <= 0 && $y >= ($r / 2) && (2 * $x + 2 * $y >= $r/2));
+        ($x >= 0 && $x <= ($r/2) && $y <= 0 && $y >= ($r / 2) && (2 * $x + 2 * $y <= $r/2));
 }
 
 if (isset($_POST['x']) && isset($_POST['y']) && isset($_POST['r'])) {
