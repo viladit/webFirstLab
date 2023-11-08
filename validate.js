@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     const sendButton = document.getElementById("submit_request");
     sendButton.onclick = validate;
@@ -9,13 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
             selectedX = event.target.value;
             console.log('Нажата кнопка со значением:', selectedX);
         }
+
     });
+    document.getElementById("insertHere").innerHTML = localStorage.getItem("data");
     function validate() {
         const xVal = selectedX;
         const yVal = document.forms['form']['y'].value.replace(/,/, '.');
         const rVal = document.querySelector('input[name="r"]:checked').value;
 
-        let x;
+        // let x;
         console.log("Выбранное значение X:", xVal);
         console.log("Введенное значение Y:", yVal);
         console.log("Выбранное значение R:", rVal);
@@ -61,6 +62,7 @@ function send(x, y, r) {
             const newRow = tbody.insertRow();
             console.log(xhr.responseText);
             newRow.innerHTML = xhr.responseText;
+            localStorage.setItem("data", localStorage.getItem("data")+xhr.responseText);
         }
     };
     xhr.send(`x=${x}&y=${y}&r=${r}`);
@@ -69,8 +71,8 @@ const clearButton = document.getElementById("clear_table");
 clearButton.onclick = clearTable;
 
 function clearTable() {
-    const tbody = document.getElementById("table");
-    tbody.innerHTML = "";
+    localStorage.setItem("data", "");
+    document.getElementById("insertHere").innerHTML = "";
 }
 
 function isEmpty(obj) {
