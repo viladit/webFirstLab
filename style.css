@@ -74,6 +74,16 @@ h3 {
     width: 50px;
 }
 
+.buttonX:hover {
+    background-color: #ffcc00;
+    color: black;
+}
+
+.buttonX:active {
+    background-color: red;
+    color: black;
+}
+
 .text-input {
     padding: 10px;
     border: 2px solid #7c3c87;
@@ -99,6 +109,11 @@ h3 {
     border-radius: 10px;
     cursor: pointer;
     margin: 5px;
+}
+
+.action-button:hover{
+    background-color: #ffcc00;
+    color: black;
 }
 .result {
     margin-right: auto;

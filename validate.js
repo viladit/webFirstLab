@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const yVal = document.forms['form']['y'].value.replace(/,/, '.');
         const rVal = document.querySelector('input[name="r"]:checked').value;
 
-        // let x;
         console.log("Выбранное значение X:", xVal);
         console.log("Введенное значение Y:", yVal);
         console.log("Выбранное значение R:", rVal);

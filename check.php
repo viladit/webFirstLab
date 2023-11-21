@@ -15,9 +15,13 @@ function is_hit($x, $y, $r): bool {
 }
 
 if (isset($_POST['x']) && isset($_POST['y']) && isset($_POST['r'])) {
-    $x = floatval($_POST['x']);
-    $y = floatval($_POST['y']);
-    $r = floatval($_POST['r']);
+    $notRoundx = floatval($_POST['x']);
+    $notRoundy = floatval($_POST['y']);
+    $notRoundr = floatval($_POST['r']);
+
+    $x = round($notRoundx, 3);
+    $y = round($notRoundy, 3);
+    $r = round($notRoundr, 3);
 
     if (validate($x, $y, $r)) {
         date_default_timezone_set('Europe/Moscow');
@@ -29,7 +33,7 @@ if (isset($_POST['x']) && isset($_POST['y']) && isset($_POST['r'])) {
         } else {
             $is_hit = "fail";
         }
-
+        $cutY =
         $exc_time = round((microtime(true) - $exc_time) * 1e6, 2) . " ms";
         $res_arr = array($x, $y, $r, $cur_time, $exc_time, $is_hit);
 
